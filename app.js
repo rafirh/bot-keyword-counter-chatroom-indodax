@@ -26,7 +26,13 @@ const keyword = 'cukongindodax';
 
 const saveChatroom = async () => {
   try {
-    const response = await axios.get(endpoint);
+    const response = await axios.get(endpoint, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0',
+      },
+    });
     const chatroom = response.data.data.content;
 
     let chatroomData = [];
